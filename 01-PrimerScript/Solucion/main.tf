@@ -9,8 +9,8 @@ terraform {
 
 provider "aws" {
   region     = "us-west-2"
-  access_key = "AKIATBA7NU4HTK67SU6O"
-  secret_key = "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"
+  access_key = ""
+  secret_key = ""
 }
 
 resource "aws_instance" "MiVM" {
