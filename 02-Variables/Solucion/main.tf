@@ -7,16 +7,23 @@ terraform {
     }
 }
 
+variable "region" {
+  default = "us-east-1"
+}
+
 provider "aws" {
-  region     = "us-west-2"
-  access_key = "AKIATBA7NU4HTK67SU6O"
-  secret_key = "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"
+  region = var.region
+}
+
+locals {
+  vmami = var.ubuntu_version == 18 ? "" : ""
+  vmname = "VM${var.env}_Ubuntu${var.ubuntu_version}"
 }
 
 resource "aws_instance" "MiVM" {
-  ami = "ami-024e6efaf93d85776"
+  ami = local.vmami
   instance_type = "t2.micro"
   tags = {
-    Name = "AWS_Linux1"
+    Name = local.vmname
   }
 }
