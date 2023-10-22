@@ -1,14 +1,18 @@
-variable "amiUbuntu18" {
-  description = "Ami del SO Ubuntu 18"  
+
+variable "myinstance_type"{
+
 }
 
-variable "amiUbuntu20" {
-  description = "Ami del SO Ubuntu 20"
+variable "my_region" {
+  type = string
+  description = "Esta es mi region favorita"
+  sensitive = false
 }
 
-variable "ubuntu_version" {
-  type = number
-}
 variable "env" {
-  description = "Ambiente de prod o test"
+  type = string
+}
+
+variable "ubuntu_v" {
+  type = number
 }
